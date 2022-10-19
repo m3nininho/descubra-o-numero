@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #3f3f46;
+}
+div{
+  padding: 50px;
+  margin: 0 auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #8b5cf6;
+  border-radius: 6px;
+  box-shadow: 4px 4px black;
+}
+div h1{
+    margin-bottom: 50px;
+    color:#a3e635;    
+}
+div p{
+  color: #06b6d4;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+#inNumero{
+  padding: 4px;
+  border-radius: 4px;
+  border: 3px solid black;
+}
+.btn{
+  padding: 6px;
+  background: #0284c7;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 3px solid black;
+}
+h3{
+  color:#a3e635;
+}

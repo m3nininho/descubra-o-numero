@@ -1,10 +1,11 @@
-<h1 align="center"> Descubra o Número </h1>
+<h1 align="center"> Brinquedoteca </h1>
 
 <br>
 
 <h3 align="center">Tela inicial</h3>
 <p align="center">
-  <img alt="rocketpay" src=".assets/../assets/tela-principal.png" width="100%">
+<br>
+  <img alt="rocketpay" src="./assets/tela-inicial.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -15,18 +16,29 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - JavaScript
 
 <br>
-<h3 align="center">Vitoria</h3>
+<h3 align="center">Adicionando Criança </h3>
 <p align="center">
-  <img alt="rocketpay" src=".assets/../assets/vitoria.png" width="100%">
+<br>
+  <img alt="rocketpay" src="./assets/adicionando01.png" width="100%">
 </p>
 <br>
-<h3 align="center">Derrota</h3>
+
+<br>
+<h3 align="center">Criança adicionada </h3>
 <p align="center">
-  <img alt="rocketpay" src=".assets/../assets/derrota.png" width="100%">
+<br>
+  <img alt="rocketpay" src="./assets/adicionado02.png" width="100%">
+</p>
+<br>
+
+<br>
+<h3 align="center">Faixa etária</h3>
+<p align="center">
+<br>
+  <img alt="rocketpay" src="./assets/resumo-das-criancas.png" width="100%">
 </p>
 <br>
 
 ## 💻 Projeto
 
-O **Descubra um Número** é um projeto que foi desenvolvido para treinar o uso do HTML, CSS e JavaScript. 
-Ele também conta com o sistema de dicas e quantidade de chances para o usuário.
+A ideia do programa **Brinquedoteca**, foi retirado do livro **Lógica de Programação e Algoritmos com JavaScript** da editora **Novatec**. O programa foi alterado de forma totalmente pessoal para o treino das tecnologias utilizadas.

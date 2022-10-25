@@ -1,59 +1,82 @@
-const erros = [];
+const criancas = [];
 
-const sorteado = Math.floor(Math.random() * 100) + 1
+function adicionarCriancas(e){
+  e.preventDefault()
+  const inNome = document.getElementById("inNome");
+  const inIdade = document.getElementById("inIdade");
 
-const chances = 6;
+  const nome = inNome.value;
+  const idade = Number(inIdade.value);
 
-function apostarNumeros(){
-  const inNumero = document.getElementById('inNumero');
-  const box = document.getElementById('box');
-  const numero = Number(inNumero.value);
-
-  if(numero <= 0 || numero > 100 || isNaN(numero)){
-    alert('Informe um número válido...');
-    inNumero.focus();
+  if(nome == "" || inIdade.value == "" || isNaN(idade)){
+    alert("Informe corretamente os dados");
+    inNome.focus();
     return;
   }
-  const outDica = document.getElementById("outDica");
-  const outErros = document.getElementById("outErros");
-  const outChances = document.getElementById("outChances");
+  criancas.push({nome: nome, idade: idade});
 
-  if(numero == sorteado){
-    document.body.style.background = "#84cc16"
-    alert("Parabéns!! Você acertou!!");
-    btApostar.disable = true;
-    btJogar.className = "btn";
-    outDica.textContent = "Parabéns!! Número sorteado: " + sorteado;
-  } else{
-    if(erros.indexOf(numero) >= 0){
-      alert("Você já apostou o número " + numero + ". Tente outro...")
-    } else {
-      erros.push(numero)
-      const numErros = erros.length;
-      const numChances = chances - numErros
-      outErros.textContent = numErros +  " (" + erros.join(", ") + ")";
-      outChances.textContent = numChances;
-      if(numChances == 0){
-        document.body.style.background = "#dc2626"
-        alert('Suas chances acabaram...');
-        btApostar.disable = true;
-        btJogar.className = "btn";
-        outDica.textContent = "Game Over!! Numero sorteado: " + sorteado;
-      } else{
-        const dica = numero < sorteado ? "maior" : "menor";
-        outDica.textContent = "Dica: Tente um número " + dica + " que " +  numero;
-      }
+  inNome.value = "";
+  inIdade.value = "";
+  inNome.focus();
+
+  listarCriancas();
+}
+const btAdicionar = document.getElementById("btAdicionar");
+btAdicionar.addEventListener('click', adicionarCriancas);
+
+
+function listarCriancas(){
+
+  if(criancas.length == 0) {
+    alert("Não há crianças na lista");
+    return;
+  }
+  let lista = "";
+
+for(let i = 0; i < criancas.length; i++){
+  lista += criancas[i].nome + " - " + criancas[i].idade + " anos\n";
+}
+
+document.getElementById("outLista").textContent = lista;
+const h2 = document.getElementById("h2")
+h2.style.display = "block"
+}
+
+
+const btListar = document.getElementById("btListar");
+btListar.addEventListener('click', listarCriancas);
+
+function resumirLista(){
+  if(criancas.length == 0){
+    alert("Não há crianças na lista");
+    return;
+  }
+  const copia = criancas.slice();
+  copia.sort(function(a, b){return a.idade - b.idade})
+
+  let resumo = "";
+
+  let aux = copia[0].idade;
+  let nomes = [];
+
+  for(let i = 0; i < copia.length; i++){
+    if(copia[i].idade == aux){
+      nomes.push(copia[i].nome);
+    } else{
+      resumo += aux + " anos(s): " + nomes.length + " criança(s) - ";
+      resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n"
+      resumo += "(" + nomes.join(", ") + ")\n\n";
+      aux = copia[i].idade;
+      nomes = [];
+      nomes.push(copia[i].nome); 
     }
   }
-  inNumero.value = "";
-  inNumero.focus();
-}
-const btApostar = document.getElementById("btApostar");
-btApostar.addEventListener('click', apostarNumeros)
+  resumo += aux + " ano(s): " + nomes.length + " criança(s) -";
+  resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n";
+  resumo += "(" + nomes.join(", ") + ")\n\n";
 
-function jogarNovamente(){
-  location.reload(); 
+  document.getElementById("outLista").textContent = resumo;
 }
 
-const btJogar = document.getElementById('btJogar');
-btJogar.addEventListener('click', jogarNovamente)
+const btResumir = document.getElementById("btResumir");
+btResumir.addEventListener('click', resumirLista)

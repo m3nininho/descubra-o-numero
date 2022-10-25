@@ -3,34 +3,34 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo Vector</title>
+  <title>Brinquedoteca</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div id="box">
-    <h1>
-      Descubra o Número
-    </h1>
-    <p>
-      Número:
-      <input type="text" id="inNumero" autofocus>
-      <input type="button" value="Apostar" id="btApostar" class="btn">
-      <input type="button" value="Jogar novamente" id="btJogar" class="btn">
-
-      <h3>
-        Erros:
-        <span id="outErros">0</span>
-      </h3>
-      <h3>
-        Chances:
-        <span id="outChances">6</span>
-      </h3>
-      <h3 id="outDica">
-        Dica: É um número entre 1 e 100
-      </h3>
+  <div class="container">
+    <h1 class="page-title">Programa Brinquedoteca</h1>
+    <div class="content">
+     <form class="form">
+        <label>Nome da Criança: </label>
+        <input type="text" id="inNome" autofocus>
+        <label >Idade: </label>
+        <input type="text" id="inIdade">
+        <button id="btAdicionar">Adicionar</button>
+     </form>
+      <div class="box-buttons">
+        <button id="btListar">Listar Todos</button>
+        <button id="btResumir"> Resumir por Idade</button>
+      </div>
+    </div>
+    <div id="result">
+      <h2 id="h2">Crianças adicionadas:</h2>
+      <pre id="outLista"></pre>
+    </div>
   </div>
   <script src="./app.js"></script>
 </body>
